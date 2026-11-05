@@ -9,9 +9,10 @@
    - `apps/web`: Next.js 16 (App Router), TypeScript strict, Tailwind v4, shadcn, Lucide icon.
    - `packages/domain`: Thư viện tính toán thuần túy không I/O, Vitest.
    - `packages/db`: Drizzle ORM, postgres driver, drizzle-kit, migration script.
-2. **PostgreSQL 17 & Migration 0000**:
-   - `docker-compose.yml`: Dịch vụ `postgres-dev` (5432) và `postgres-test` (5433).
-   - `packages/db/migrations/0000_init_extensions.sql`: Kích hoạt đủ 4 extension `btree_gist`, `pgcrypto`, `pg_trgm`, `unaccent`.
+2. **PostgreSQL Cloud (Aiven) & Migration 0000**:
+   - Chuyển cấu hình kết nối sang Aiven PostgreSQL (`sslmode=require`).
+   - Đã thực thi migration `0000_init_extensions.sql` thành công lên Aiven: kích hoạt đủ 4 extension `btree_gist`, `pgcrypto`, `pg_trgm`, `unaccent`.
+   - Vẫn lưu giữ `docker-compose.yml` (port 5432 / 5433) làm phương án dự phòng/local offline.
    - Script chạy migration tự động qua TS: `pnpm db:migrate`.
 3. **Tiện ích nền tảng Domain & Unit Tests**:
    - `money.ts`: Kiểu `MoneyVND` integer VND, format chuẩn Việt Nam (`1.234.000 ₫`), từ chối số thập phân và số âm.
