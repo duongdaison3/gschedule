@@ -13,7 +13,7 @@ Một lớp phân quyền và audit duy nhất, dùng lại cho mọi phần sau
 2. Seed role: SUPER_ADMIN, ADMIN, TEAM_LEAD, COORDINATOR, HR, PAYROLL, TEACHER, COLLABORATOR, SCHOOL_VIEWER (tắt mặc định). Seed permission dạng `module.resource.action` (view/create/update/archive/approve/publish/lock/export/reveal_sensitive) khớp ma trận §4.3; mọi thứ chỉnh được trong DB (đây là baseline đề xuất, chưa phê duyệt).
 3. Auth bằng Better Auth (email + mật khẩu, session an toàn, chống brute-force/rate limit, khóa/mở tài khoản). Tra Context7 để dùng API đúng phiên bản.
 4. `can(user, permission, resource?)` trong domain/service: hợp nhất nhiều role + nhiều scope, tôn trọng thời hạn hiệu lực. Helper `requirePermission()` và `withService()` bọc: kiểm quyền → transaction → ghi audit → kiểm tra `version`.
-5. `audit_logs` append-only (trigger chặn UPDATE/DELETE; REVOKE cho role ứng dụng). Trường: actor, action (CREATE/UPDATE/DELETE_SOFT/APPROVE/REJECT/PUBLISH/CANCEL/LOCK/UNLOCK/EXPORT/OVERRIDE/REVEAL), entity_type/id, before/after (che trường nhạy cảm), reason, ip/session/source, timestamp. Action bắt buộc `reason` được khai báo trong một registry.
+5. `audit_logs` append-only: trigger chặn UPDATE/DELETE VÀ `REVOKE UPDATE, DELETE, TRUNCATE ON audit_logs FROM gschedule_app` (đặt sau khi bảng được tạo, vì default privileges đã cấp quyền). Trường: actor, action (CREATE/UPDATE/DELETE_SOFT/APPROVE/REJECT/PUBLISH/CANCEL/LOCK/UNLOCK/EXPORT/OVERRIDE/REVEAL), entity_type/id, before/after (che trường nhạy cảm), reason, ip/session/source, timestamp. Action bắt buộc `reason` được khai báo trong một registry.
 6. Maker-checker: người tạo không tự duyệt khi `approval_policies.maker_checker = true`.
 7. UI: đăng nhập, quản trị user (tạo/khóa/gán nhiều role + scope + thời hạn), xem audit (lọc theo actor/entity/action/ngày). Sidebar chỉ hiện mục được phép.
 
@@ -26,8 +26,8 @@ Không SSO/MFA (để P16 nếu bật). Không phân quyền theo trường dữ
 - [ ] Role hết hạn không còn hiệu lực; nhân sự đổi vị trí thu hồi được quyền
 - [ ] AT-028: TEACHER/COLLABORATOR gọi API lấy dữ liệu người khác → 403 (test ở tầng service VÀ route)
 - [ ] AT-029 (phần chung): mutation mẫu có actor/time/before-after/reason trong audit
-- [ ] Không có API sửa/xóa audit; trigger chặn UPDATE/DELETE (có test)
+- [ ] Không có API sửa/xóa audit; test bằng role `gschedule_app` (bị REVOKE chặn) và bằng owner (trigger vẫn chặn)
 - [ ] Maker-checker: tạo rồi tự duyệt → bị chặn
 - [ ] Rate limit đăng nhập có test; mật khẩu không bao giờ xuất hiện trong log
-- [ ] Không còn route/action nào gọi DB trực tiếp ngoài `withService()` (grep kiểm chứng)
+- [ ] Không còn route/action nào gọi DB trực tiếp ngoài `withService()` (rg kiểm chứng)
 - [ ] `pnpm check` xanh; PROGRESS cập nhật

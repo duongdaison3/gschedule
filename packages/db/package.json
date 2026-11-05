@@ -6,8 +6,10 @@
   "types": "./src/index.ts",
   "scripts": {
     "migrate": "node --import tsx scripts/migrate.ts",
-    "seed": "node -e \"console.log('Chưa cấu hình seed')\"",
-    "reset": "node -e \"console.log('Chưa cấu hình reset')\"",
+    "create-app-role": "node --import tsx scripts/create-app-role.ts",
+    "seed": "node --import tsx scripts/seed.ts",
+    "reset": "node --import tsx scripts/reset.ts",
+    "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -20,6 +22,7 @@
     "@types/node": "^22",
     "drizzle-kit": "^0.31.11",
     "tsx": "^4.23.15",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^3.0.7"
   }
 }

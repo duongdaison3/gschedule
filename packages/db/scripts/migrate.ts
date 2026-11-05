@@ -1,16 +1,27 @@
 import fs from "node:fs";
 import path from "node:path";
-import { getSqlClient } from "../src";
+import { getValidatedEnv, getMigrateUrl, createSqlClient } from "../src";
 
 async function runMigrate() {
-  const sql = getSqlClient();
+  const env = getValidatedEnv();
+  const migrateUrl = getMigrateUrl(env);
+
+  console.log(`Bắt đầu chạy migration với URL: ${migrateUrl.replace(/:[^:@]+@/, ":***@")}`);
+  const sql = createSqlClient(migrateUrl, env);
+
   const migrationsDir = path.resolve(__dirname, "../migrations");
+  if (!fs.existsSync(migrationsDir)) {
+    console.log("Thư mục migrations không tồn tại. Bỏ qua.");
+    await sql.end();
+    return;
+  }
+
   const files = fs
     .readdirSync(migrationsDir)
     .filter((file) => file.endsWith(".sql"))
     .sort();
 
-  console.log(`Bắt đầu chạy ${files.length} migrations...`);
+  console.log(`Tìm thấy ${files.length} file migration...`);
   for (const file of files) {
     const filePath = path.join(migrationsDir, file);
     const content = fs.readFileSync(filePath, "utf-8");
@@ -25,4 +36,3 @@ runMigrate().catch((err) => {
   console.error("Migration thất bại:", err);
   process.exit(1);
 });
-

@@ -22,6 +22,6 @@ Gợi ý người thay chính xác, giải thích được, nhanh trên dữ li�
 - [ ] Buổi "TRỐNG" theo ngưỡng nhưng slot cụ thể trùng → chế độ chính xác báo OVERLAP
 - [ ] Mỗi nhân sự bị loại có ≥1 lý do hiển thị rõ
 - [ ] Chủ Nhật tuân theo cờ `include_sunday`
-- [ ] Số query để dựng ma trận 1 tuần cố định (không tăng theo số nhân sự); đo và ghi vào PROGRESS
+- [ ] Số query để dựng ma trận 1 tuần ≤ 6 và không tăng theo số nhân sự (mỗi round-trip tới Aiven có độ trễ); đo và ghi vào PROGRESS
 - [ ] Người không có quyền không thấy TCS toàn văn phòng
 - [ ] `pnpm check` xanh; PROGRESS cập nhật

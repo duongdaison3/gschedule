@@ -3,7 +3,7 @@ description: "P08 — Master Schedule UI: lưới tuần, panel chi tiết, copy
 agent: agent
 ---
 # P08 — Master Schedule UI
-**Model:** Flash (Med). **Đọc:** SRS §10.1, §10.2 (màn 2), §10.4, FR-SCH-003/006/008, NFR-PERF-002, NFR-ACC-001. **Skill:** vercel-react-best-practices, web-design-guidelines, frontend-design (nếu có).
+**Model:** Flash (Med). **Đọc:** SRS §10.1, §10.2 (màn 2), §10.4, FR-SCH-003/006/008, NFR-PERF-002, NFR-ACC-001. **Skill:** vercel-react-best-practices, impeccable (`/impeccable audit` khi xong màn hình).
 
 ## Mục tiêu
 Điều phối viên xem, lọc, sửa, copy tuần nhanh và không sai; thay lưới Excel 23×101 bằng thẻ event.

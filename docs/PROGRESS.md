@@ -1,40 +1,31 @@
 # Bàn giao tiến độ — GSchedule (VP Hà Nội)
 
-## Phiên hiện tại: P00 — Bootstrap nền tảng monorepo, DB, CI, shell UI, tiện ích nền
+## Phiên hiện tại: P00b — Điều chỉnh môi trường Aiven PostgreSQL + Windows/PowerShell
 - **Ngày hoàn thành:** 2026-11-05
-- **Trạng thái `pnpm check`:** XANH (Typecheck + Lint + 13 Unit Tests Vitest).
+- **Trạng thái `pnpm check`:** XANH (Typecheck + Lint + 32 Unit Tests Vitest).
 
 ### Những việc đã hoàn thành
-1. **Monorepo setup**: Chuyển đổi thành pnpm workspaces gồm 3 package/app:
-   - `apps/web`: Next.js 16 (App Router), TypeScript strict, Tailwind v4, shadcn, Lucide icon.
-   - `packages/domain`: Thư viện tính toán thuần túy không I/O, Vitest.
-   - `packages/db`: Drizzle ORM, postgres driver, drizzle-kit, migration script.
-2. **PostgreSQL Cloud (Aiven) & Migration 0000**:
-   - Chuyển cấu hình kết nối sang Aiven PostgreSQL (`sslmode=require`).
-   - Đã thực thi migration `0000_init_extensions.sql` thành công lên Aiven: kích hoạt đủ 4 extension `btree_gist`, `pgcrypto`, `pg_trgm`, `unaccent`.
-   - Vẫn lưu giữ `docker-compose.yml` (port 5432 / 5433) làm phương án dự phòng/local offline.
-   - Script chạy migration tự động qua TS: `pnpm db:migrate`.
-3. **Tiện ích nền tảng Domain & Unit Tests**:
-   - `money.ts`: Kiểu `MoneyVND` integer VND, format chuẩn Việt Nam (`1.234.000 ₫`), từ chối số thập phân và số âm.
-   - `credits.ts`: Kiểu `CentiCredits` integer (0.40 -> 40 centi-tiết), hàm so sánh/cộng không dùng float.
-   - `time.ts`: Quản lý timezone `Asia/Ho_Chi_Minh` (UTC+7), `getTeachingDate`, weekday ISO, tuần giao thoa tháng (30/04 - 01/05).
-   - `result.ts` & `errors.ts`: Result monad (`ok`, `err`) và `DomainError` với mã định danh nghiệp vụ.
-4. **App Shell & NFR-UX-001**:
-   - Giao diện tiếng Việt: Sidebar cố định desktop + Bottom nav trên mobile (375px), hỗ trợ outline focus bàn phím rõ ràng.
-   - Error boundary (`error.tsx`), skeleton loading (`loading.tsx`), trang 404 (`not-found.tsx`), API health check ping database (`/api/health`).
-5. **CI/CD**:
-   - `.github/workflows/ci.yml`: Chạy tự động `pnpm check` kết nối service container Postgres 17.
+1. **Biến môi trường & cấu hình kết nối DB**:
+   - `DATABASE_URL`: Aiven PostgreSQL (`gschedule_dev`) dùng role `gschedule_app` quyền tối thiểu, `sslmode=require`.
+   - `DATABASE_MIGRATE_URL`: Kết nối trực tiếp dành cho migration (role owner `avnadmin`); tự fallback về `DATABASE_URL` nếu để trống.
+   - `DATABASE_TEST_URL`: Dành riêng cho test tích hợp (mặc định Docker `localhost:5433/gschedule_test` hoặc DB có hậu tố `_test`), từ chối khi rỗng hoặc trùng `DATABASE_URL`.
+   - `DB_POOL_MAX` (mặc định 5, phù hợp gói free Aiven ≤ 20 kết nối), hỗ trợ `PG_CA_CERT`, cấm `rejectUnauthorized: false` trên production.
+2. **Rào an toàn DB (`packages/db/src/safety.ts`)**:
+   - Chặn `pnpm db:reset`, `pnpm db:seed`, truncate/drop trên host không phải localhost VÀ không có hậu tố `_dev`/`_test` (trừ khi có `ALLOW_DESTRUCTIVE_DB=1`).
+   - Đã có 19 unit test kiểm thử toàn diện các điều kiện an toàn (`packages/db/src/__tests__/safety.test.ts`).
+3. **Phân quyền & vai trò DB (`packages/db/scripts/create-app-role.ts`)**:
+   - Script idempotent tạo role `gschedule_app`, cấp quyền CONNECT, USAGE schema public, SELECT/INSERT/UPDATE/DELETE trên các bảng và sequence, thiết lập DEFAULT PRIVILEGES, chặn UPDATE/DELETE trên `audit_logs`.
+4. **Môi trường Windows/PowerShell & Chuẩn hóa Git**:
+   - Thêm `.gitattributes` (`* text=auto eol=lf`), `.editorconfig`, `"packageManager": "pnpm@11.5.1"`.
+   - Viết tài liệu toàn diện `docs/DB_ENVIRONMENTS.md` ghi nhận giới hạn Aiven (kết nối, auto-sleep, IP allowlist).
+   - Bổ sung câu hỏi `P1-09` vào `docs/OPEN_QUESTIONS.md`.
 
-### Phiên bản thực tế các thư viện chính
-- `next`: `16.4.5`
-- `react`: `19.3.0`
-- `drizzle-orm`: `^0.45.4`
-- `drizzle-kit`: `^0.31.11`
-- `postgres`: `^4.0.0`
-- `vitest`: `^3.0.7`
-- `typescript`: `^5.9.3`
-- `pnpm`: `11.5.1`
+### File chính thay đổi
+- `packages/db/src/safety.ts`, `packages/db/src/env.ts`, `packages/db/src/index.ts`, `packages/db/src/__tests__/safety.test.ts`
+- `packages/db/scripts/create-app-role.ts`, `migrate.ts`, `reset.ts`, `seed.ts`
+- `docs/DB_ENVIRONMENTS.md`, `docs/OPEN_QUESTIONS.md`, `AGENTS.md`, `.gitattributes`, `.editorconfig`, `.env.example`, `package.json`
 
-### Việc tồn đọng / Kế hoạch phiên tiếp theo
-- Chuẩn bị bước vào **P01 — Schema nhân sự, hợp đồng & xác thực (Better Auth)**.
-
+### Quyết định & Phân bổ môi trường DB
+- **Dev:** Aiven PostgreSQL cloud (`gschedule_dev`) với role `gschedule_app`, dữ liệu fixture ẩn danh.
+- **Test:** Docker Postgres local cổng 5433 (`gschedule_test`) hoặc container CI; không đưa secret Aiven vào CI.
+- **Việc treo:** P1-09 (Chốt vị trí lưu trữ, SLA, PITR và gói dịch vụ chính thức trước khi nhập dữ liệu thật).

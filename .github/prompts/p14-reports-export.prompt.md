@@ -13,7 +13,8 @@ Số liệu có định nghĩa rõ, drill-down được, xuất đúng quyền.
 2. Báo cáo tuần/tháng theo `teaching_date`; theo giáo viên/trường/môn/pháp nhân/kỳ; drill-down từ số liệu về event/assignment.
 3. Dashboard vận hành: KPI hôm nay, ca thay/bù, lớp thiếu GV, thử việc sắp hết hạn, cơ cấu môn/pháp nhân; mỗi KPI có liên kết drill-down.
 4. Export Excel (exceljs, streaming) theo template/role; báo cáo lớn chạy job bất đồng bộ; mỗi export ghi audit EXPORT; cột nhạy cảm (CCCD/bank) chỉ khi có quyền riêng (AT-031).
-5. Truy vấn tối ưu bằng index/materialized view khi cần, ghi quyết định vào PROGRESS.
+5. Không giữ transaction dài; export lớn đọc theo cursor bằng 1 kết nối riêng, không chiếm hết pool.
+6. Truy vấn tối ưu bằng index/materialized view khi cần, ghi quyết định vào PROGRESS.
 
 ## Checklist đầu ra
 - [ ] Mỗi KPI hiển thị định nghĩa + thời điểm dữ liệu + link drill-down hoạt động

@@ -29,5 +29,6 @@ Chưa làm UI (P08), chưa nghỉ/dạy thay (P10), chưa TCS (P11).
 - [ ] Một event nhiều assignment và nhiều period (FR-SCH-007) có test
 - [ ] Sửa sau PUBLISHED tạo version mới, có bản ghi outbox và audit
 - [ ] Event của kỳ LOCKED/đã COMPLETED không sửa trực tiếp được
-- [ ] Không N+1 khi tải 1 tuần (kiểm bằng log số query)
+- [ ] Không N+1 khi tải 1 tuần (kiểm bằng log số query, ghi số query vào PROGRESS)
+- [ ] Exclusion constraint/btree_gist chạy được bằng role owner trên Aiven (không cần superuser)
 - [ ] `pnpm check` xanh; PROGRESS cập nhật

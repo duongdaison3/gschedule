@@ -31,6 +31,6 @@ Chưa tính payroll run, chưa chọn chặng CTP (P12), chưa nối event thậ
 - [ ] CTV: 2 tiết → 2 × 130.000; 1 tiết → PENDING_REVIEW; đổi rate 130k→140k từ 01/07 đúng theo ngày (S6)
 - [ ] Snapshot đóng băng: đổi rule sau đó không đổi kết quả snapshot (AT-027 mức domain)
 - [ ] Phân bổ tháng: 30/04 vs 01/05 (S5, AT-024 mức domain)
-- [ ] Không có số tiền/hệ số hardcode ngoài seed + test (grep kiểm chứng)
+- [ ] Không có số tiền/hệ số hardcode ngoài seed + test (rg kiểm chứng)
 - [ ] Không dùng `number` float cho credit/tiền (lint rule hoặc test kiểu)
 - [ ] Độ phủ nhánh packages/domain/rules ≥ 95%; `pnpm check` xanh; PROGRESS cập nhật

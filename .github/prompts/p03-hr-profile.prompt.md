@@ -26,5 +26,5 @@ Hồ sơ đầy đủ, an toàn, có hàm kiểm tra hiệu lực hợp đồng/
 - [ ] TEACHER/COLLABORATOR chỉ xem hồ sơ của mình ở dạng giới hạn
 - [ ] Trùng CCCD/email/điện thoại bị cảnh báo; employee_code trùng bị chặn bằng UNIQUE
 - [ ] Offboard khóa tài khoản nhưng không xóa bản ghi nào
-- [ ] Log ứng dụng không chứa PII (grep test)
+- [ ] Log ứng dụng không chứa PII (rg test)
 - [ ] `pnpm check` xanh; PROGRESS cập nhật

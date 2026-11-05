@@ -2,18 +2,20 @@
   "name": "gschedule",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@11.5.1",
   "scripts": {
     "dev": "pnpm --filter @gschedule/web dev",
     "build": "pnpm --filter @gschedule/domain typecheck && pnpm --filter @gschedule/db typecheck && pnpm --filter @gschedule/web build",
-    "test": "pnpm --filter @gschedule/domain test",
+    "test": "pnpm --filter @gschedule/domain test && pnpm --filter @gschedule/db test",
     "lint": "pnpm --filter @gschedule/web lint",
     "typecheck": "pnpm -r typecheck",
     "check": "pnpm typecheck && pnpm lint && pnpm test",
     "db:up": "docker compose up -d",
     "db:down": "docker compose down",
     "db:migrate": "pnpm --filter @gschedule/db migrate",
-    "db:seed": "pnpm --filter @gschedule/db run seed",
-    "db:reset": "pnpm --filter @gschedule/db run reset"
+    "db:create-app-role": "pnpm --filter @gschedule/db create-app-role",
+    "db:seed": "pnpm --filter @gschedule/db seed",
+    "db:reset": "pnpm --filter @gschedule/db reset"
   },
   "devDependencies": {
     "typescript": "^5"

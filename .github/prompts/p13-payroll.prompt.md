@@ -19,7 +19,7 @@ Payroll đúng, truy nguyên được, khóa thật sự. Không phát hành ti�
 
 ## Checklist đầu ra
 - [ ] AT-025: lịch chưa confirmed không vào payroll
-- [ ] AT-026: kỳ LOCKED — update/delete trực tiếp event/item bị DB từ chối (test bằng SQL trực tiếp); adjustment mới có liên kết
+- [ ] AT-026: kỳ LOCKED — update/delete trực tiếp event/item bị DB từ chối (test bằng SQL trực tiếp trên DB test, chạy cả bằng role `gschedule_app` và owner); adjustment mới có liên kết
 - [ ] AT-027/S6: đổi rate sau khóa không đổi kỳ cũ; kỳ mở dùng rate mới theo ngày
 - [ ] AT-024/S5: tuần giao thoa tháng chia đúng theo teaching_date
 - [ ] Ca CTV 1 tiết ở PENDING_REVIEW, run không APPROVE được cho tới khi giải quyết/cờ bật

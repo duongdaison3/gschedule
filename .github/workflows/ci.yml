@@ -60,5 +60,6 @@ jobs:
       - name: Run checks (Typecheck + Lint + Test)
         env:
           DATABASE_URL: postgresql://postgres:postgrespassword@localhost:5432/gschedule_dev
+          DATABASE_TEST_URL: postgresql://postgres:postgrespassword@localhost:5432/gschedule_test
         run: pnpm check
 
