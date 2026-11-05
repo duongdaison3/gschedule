@@ -25,3 +25,4 @@ runMigrate().catch((err) => {
   console.error("Migration thất bại:", err);
   process.exit(1);
 });
+

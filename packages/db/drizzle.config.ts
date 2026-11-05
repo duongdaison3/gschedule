@@ -9,3 +9,4 @@ export default defineConfig({
     url: process.env.DATABASE_URL || "postgresql://postgres:postgrespassword@localhost:5432/gschedule_dev",
   },
 });
+

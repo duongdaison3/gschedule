@@ -25,3 +25,4 @@ export function isOk<T, E>(result: Result<T, E>): result is OkResult<T> {
 export function isErr<T, E>(result: Result<T, E>): result is ErrResult<E> {
   return !result.ok;
 }
+

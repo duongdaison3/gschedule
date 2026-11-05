@@ -22,3 +22,4 @@ export class DomainError extends Error {
     Object.setPrototypeOf(this, DomainError.prototype);
   }
 }
+

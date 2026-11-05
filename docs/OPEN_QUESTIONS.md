@@ -15,3 +15,4 @@ Tài liệu này ghi nhận các mục [CẦN XÁC NHẬN] từ SRS v2 và kỹ 
 | **P0-10** | Tách / gộp nghĩa vụ dạy bù (makeup obligation) | `allow_split_makeup` = true, `allow_merge_makeup` = false; Điều phối viên (COORDINATOR) xác nhận hoàn tất | CHƯA CHỐT |
 | **P0-11** | Chính sách phê duyệt & maker-checker | Bảng `approval_policies` seed theo ma trận phân quyền §4.3, kích hoạt maker-checker đối với duyệt tiền và mở khóa kỳ công | CHƯA CHỐT |
 | **P0-12** | Chu kỳ kỳ công tính lương | Kỳ công tính theo tháng dương lịch Asia/Ho_Chi_Minh, cho phép cấu hình ngày bắt đầu/kết thúc | CHƯA CHỐT |
+

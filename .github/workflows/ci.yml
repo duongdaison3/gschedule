@@ -61,3 +61,4 @@ jobs:
         env:
           DATABASE_URL: postgresql://postgres:postgrespassword@localhost:5432/gschedule_dev
         run: pnpm check
+

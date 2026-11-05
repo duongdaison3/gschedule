@@ -35,3 +35,4 @@ describe("Time (Asia/Ho_Chi_Minh & Teaching Date utility)", () => {
     expect(getISOWeekday("2026-05-03T08:00:00Z")).toBe(7);
   });
 });
+

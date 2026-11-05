@@ -57,3 +57,4 @@ describe("Money (VND Integer domain utility)", () => {
     }
   });
 });
+

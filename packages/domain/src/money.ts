@@ -61,3 +61,4 @@ export function formatMoney(amount: MoneyVND | number): string {
   const formatted = integerPart.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   return `${formatted} ₫`;
 }
+

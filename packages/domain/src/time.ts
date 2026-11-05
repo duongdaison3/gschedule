@@ -93,3 +93,4 @@ export function isCrossingMonthWeek(dateInput: Date | string | number): boolean 
   const endMonth = end.slice(0, 7);
   return startMonth !== endMonth;
 }
+

@@ -36,3 +36,4 @@
 
 ### Việc tồn đọng / Kế hoạch phiên tiếp theo
 - Chuẩn bị bước vào **P01 — Schema nhân sự, hợp đồng & xác thực (Better Auth)**.
+
