@@ -1,4 +1,10 @@
-import "dotenv/config";
+import path from "node:path";
+import dotenv from "dotenv";
+
+// Nạp file .env từ root dự án
+dotenv.config({ path: path.resolve(__dirname, "../../../.env") });
+dotenv.config(); // fallback nạp thêm tại cwd
+
 import postgres from "postgres";
 import { drizzle } from "drizzle-orm/postgres-js";
 import { getValidatedEnv } from "./env";
@@ -11,7 +17,10 @@ let _sql: ReturnType<typeof postgres> | null = null;
 export function getDb() {
   if (!_db) {
     const env = getValidatedEnv();
-    _sql = postgres(env.DATABASE_URL, { max: env.NODE_ENV === "production" ? 10 : 2 });
+    _sql = postgres(env.DATABASE_URL, {
+      max: env.NODE_ENV === "production" ? 10 : 2,
+      ssl: env.DATABASE_URL.includes("sslmode=require") ? "require" : undefined,
+    });
     _db = drizzle(_sql);
   }
   return _db;
@@ -23,4 +32,3 @@ export function getSqlClient() {
   }
   return _sql!;
 }
-
