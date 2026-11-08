@@ -1,0 +1,176 @@
+{
+  "entries": {
+    "cmd-1794130548516": {
+      "key": "cmd-1794130548516",
+      "value": "{\"command\":\"pnpm --filter @gschedule/web add @better-auth/infra\",\"exitCode\":0,\"success\":true}",
+      "namespace": "commands",
+      "storedAt": "2026-11-08T09:35:48.516Z",
+      "lastAccessed": "2026-11-08T09:35:48.516Z",
+      "accessCount": 0,
+      "expiresAt": "2026-12-08T09:35:48.516Z"
+    },
+    "cmd-1794130617435": {
+      "key": "cmd-1794130617435",
+      "value": "{\"command\":\"git diff -- apps/web/package.json pnpm-lock.yaml; git status --short\",\"exitCode\":0,\"success\":true}",
+      "namespace": "commands",
+      "storedAt": "2026-11-08T09:36:57.435Z",
+      "lastAccessed": "2026-11-08T09:36:57.435Z",
+      "accessCount": 0,
+      "expiresAt": "2026-12-08T09:36:57.435Z"
+    },
+    "cmd-1794130632367": {
+      "key": "cmd-1794130632367",
+      "value": "{\"command\":\"pnpm --filter @gschedule/web typecheck\",\"exitCode\":0,\"success\":true}",
+      "namespace": "commands",
+      "storedAt": "2026-11-08T09:37:12.367Z",
+      "lastAccessed": "2026-11-08T09:37:12.367Z",
+      "accessCount": 0,
+      "expiresAt": "2026-12-08T09:37:12.367Z"
+    },
+    "cmd-1794130711076": {
+      "key": "cmd-1794130711076",
+      "value": "{\"command\":\"git diff --check -- apps/web/package.json pnpm-lock.yaml; Select-String -Path pnpm-lock.yaml -Pattern '@better-auth/infra' -Context 1,2\",\"exitCode\":0,\"success\":true}",
+      "namespace": "commands",
+      "storedAt": "2026-11-08T09:38:31.076Z",
+      "lastAccessed": "2026-11-08T09:38:31.076Z",
+      "accessCount": 0,
+      "expiresAt": "2026-12-08T09:38:31.076Z"
+    },
+    "cmd-1794130935863": {
+      "key": "cmd-1794130935863",
+      "value": "{\"command\":\"Get-Content node_modules\\\\@better-auth\\\\infra\\\\package.json; Get-ChildItem node_modules\\\\@better-auth\\\\infra -Recurse -File | Select-Object -First 20 FullName\",\"exitCode\":0,\"success\":true}",
+      "namespace": "commands",
+      "storedAt": "2026-11-08T09:42:15.863Z",
+      "lastAccessed": "2026-11-08T09:42:15.863Z",
+      "accessCount": 0,
+      "expiresAt": "2026-12-08T09:42:15.863Z"
+    },
+    "cmd-1794130968081": {
+      "key": "cmd-1794130968081",
+      "value": "{\"command\":\"Get-ChildItem apps\\\\web\\\\node_modules\\\\@better-auth -Force; Get-Content apps\\\\web\\\\node_modules\\\\@better-auth\\\\infra\\\\package.json\",\"exitCode\":0,\"success\":true}",
+      "namespace": "commands",
+      "storedAt": "2026-11-08T09:42:48.081Z",
+      "lastAccessed": "2026-11-08T09:42:48.081Z",
+      "accessCount": 0,
+      "expiresAt": "2026-12-08T09:42:48.081Z"
+    },
+    "cmd-1794131000089": {
+      "key": "cmd-1794131000089",
+      "value": "{\"command\":\"Get-ChildItem apps\\\\web\\\\node_modules\\\\.pnpm -Filter '*better-auth*' | Select-Object Name; rg -n \\\"declare.*dash|function dash|dash\\\\(|sentinelClient|apiKey\\\" apps\\\\web\\\\node_modules\\\\@better-auth\\\\infra\\\\dist apps\\\\web\\\\node_modules\\\\.pnpm\\\\better-auth* -g \\\"*.d.mts\\\" -g \\\"*.d.ts\\\"\",\"exitCode\":0,\"success\":true}",
+      "namespace": "commands",
+      "storedAt": "2026-11-08T09:43:20.089Z",
+      "lastAccessed": "2026-11-08T09:43:20.089Z",
+      "accessCount": 0,
+      "expiresAt": "2026-12-08T09:43:20.089Z"
+    },
+    "cmd-1794131032074": {
+      "key": "cmd-1794131032074",
+      "value": "{\"command\":\"Get-ChildItem apps\\\\web\\\\node_modules -Force | Where-Object { $_.Name -match 'better-auth|better' } | Select-Object Name,LinkType,Target; Get-Content apps\\\\web\\\\node_modules\\\\@better-auth\\\\infra\\\\dist\\\\index.d.mts | Select-Object -Skip 1115 -First 35; Get-Content apps\\\\web\\\\node_modules\\\\@better-auth\\\\infra\\\\dist\\\\client.d.mts | Select-Object -First 70\",\"exitCode\":0,\"success\":true}",
+      "namespace": "commands",
+      "storedAt": "2026-11-08T09:43:52.074Z",
+      "lastAccessed": "2026-11-08T09:43:52.074Z",
+      "accessCount": 0,
+      "expiresAt": "2026-12-08T09:43:52.074Z"
+    },
+    "cmd-1794131118488": {
+      "key": "cmd-1794131118488",
+      "value": "{\"command\":\"pnpm --filter @gschedule/web add better-auth zod@^4.1.12\",\"exitCode\":0,\"success\":true}",
+      "namespace": "commands",
+      "storedAt": "2026-11-08T09:45:18.488Z",
+      "lastAccessed": "2026-11-08T09:45:18.488Z",
+      "accessCount": 0,
+      "expiresAt": "2026-12-08T09:45:18.488Z"
+    },
+    "cmd-1794131150889": {
+      "key": "cmd-1794131150889",
+      "value": "{\"command\":\"Get-ChildItem apps\\\\web\\\\node_modules\\\\better-auth -Force | Select-Object Name; rg -n \\\"postgresql|betterAuth\\\\(|createAuthClient|emailAndPassword\\\" apps\\\\web\\\\node_modules\\\\better-auth\\\\dist -g \\\"*.d.ts\\\" -g \\\"*.d.mts\\\" | Select-Object -First 80\",\"exitCode\":0,\"success\":true}",
+      "namespace": "commands",
+      "storedAt": "2026-11-08T09:45:50.889Z",
+      "lastAccessed": "2026-11-08T09:45:50.889Z",
+      "accessCount": 0,
+      "expiresAt": "2026-12-08T09:45:50.889Z"
+    },
+    "cmd-1794131191883": {
+      "key": "cmd-1794131191883",
+      "value": "{\"command\":\"Get-ChildItem apps\\\\web\\\\node_modules\\\\better-auth\\\\dist\\\\adapters | Select-Object Name; rg -n \\\"drizzleAdapter|postgresAdapter|postgresqlAdapter\\\" apps\\\\web\\\\node_modules\\\\better-auth\\\\dist -g \\\"*.d.mts\\\" | Select-Object -First 30\",\"exitCode\":0,\"success\":true}",
+      "namespace": "commands",
+      "storedAt": "2026-11-08T09:46:31.883Z",
+      "lastAccessed": "2026-11-08T09:46:31.883Z",
+      "accessCount": 0,
+      "expiresAt": "2026-12-08T09:46:31.883Z"
+    },
+    "cmd-1794131219941": {
+      "key": "cmd-1794131219941",
+      "value": "{\"command\":\"Get-Content apps\\\\web\\\\node_modules\\\\better-auth\\\\dist\\\\adapters\\\\drizzle-adapter\\\\index.d.mts | Select-Object -First 80; Get-Content apps\\\\web\\\\node_modules\\\\better-auth\\\\package.json | Select-String 'exports' -Context 0,40\",\"exitCode\":0,\"success\":true}",
+      "namespace": "commands",
+      "storedAt": "2026-11-08T09:46:59.941Z",
+      "lastAccessed": "2026-11-08T09:46:59.941Z",
+      "accessCount": 0,
+      "expiresAt": "2026-12-08T09:46:59.941Z"
+    },
+    "cmd-1794131248372": {
+      "key": "cmd-1794131248372",
+      "value": "{\"command\":\"Get-ChildItem apps\\\\web\\\\node_modules\\\\@better-auth -Force | Select-Object Name; Get-Content apps\\\\web\\\\node_modules\\\\better-auth\\\\dist\\\\adapters\\\\drizzle-adapter\\\\index.d.mts\",\"exitCode\":0,\"success\":true}",
+      "namespace": "commands",
+      "storedAt": "2026-11-08T09:47:28.372Z",
+      "lastAccessed": "2026-11-08T09:47:28.372Z",
+      "accessCount": 0,
+      "expiresAt": "2026-12-08T09:47:28.372Z"
+    },
+    "cmd-1794131286189": {
+      "key": "cmd-1794131286189",
+      "value": "{\"command\":\"Get-ChildItem apps\\\\web\\\\node_modules\\\\better-auth\\\\node_modules\\\\@better-auth -Force | Select-Object Name\",\"exitCode\":0,\"success\":true}",
+      "namespace": "commands",
+      "storedAt": "2026-11-08T09:48:06.189Z",
+      "lastAccessed": "2026-11-08T09:48:06.189Z",
+      "accessCount": 0,
+      "expiresAt": "2026-12-08T09:48:06.189Z"
+    },
+    "cmd-1794131322794": {
+      "key": "cmd-1794131322794",
+      "value": "{\"command\":\"node -e \\\"console.log(require.resolve('@better-auth/drizzle-adapter/package.json',{paths:['apps/web']}))\\\"\",\"exitCode\":0,\"success\":true}",
+      "namespace": "commands",
+      "storedAt": "2026-11-08T09:48:42.794Z",
+      "lastAccessed": "2026-11-08T09:48:42.794Z",
+      "accessCount": 0,
+      "expiresAt": "2026-12-08T09:48:42.794Z"
+    },
+    "cmd-1794131418983": {
+      "key": "cmd-1794131418983",
+      "value": "{\"command\":\"pnpm --filter @gschedule/web typecheck\",\"exitCode\":0,\"success\":true}",
+      "namespace": "commands",
+      "storedAt": "2026-11-08T09:50:18.983Z",
+      "lastAccessed": "2026-11-08T09:50:18.983Z",
+      "accessCount": 0,
+      "expiresAt": "2026-12-08T09:50:18.983Z"
+    },
+    "cmd-1794131548714": {
+      "key": "cmd-1794131548714",
+      "value": "{\"command\":\"pnpm check\",\"exitCode\":0,\"success\":true}",
+      "namespace": "commands",
+      "storedAt": "2026-11-08T09:52:28.714Z",
+      "lastAccessed": "2026-11-08T09:52:28.714Z",
+      "accessCount": 0,
+      "expiresAt": "2026-12-08T09:52:28.714Z"
+    },
+    "cmd-1794131590168": {
+      "key": "cmd-1794131590168",
+      "value": "{\"command\":\"git diff --stat -- apps/web/package.json pnpm-lock.yaml apps/web/src/lib/auth.ts apps/web/src/lib/auth-client.ts 'apps/web/src/app/api/auth/[...all]/route.ts' packages/db/src/env.ts .env.example\",\"exitCode\":0,\"success\":true}",
+      "namespace": "commands",
+      "storedAt": "2026-11-08T09:53:10.168Z",
+      "lastAccessed": "2026-11-08T09:53:10.168Z",
+      "accessCount": 0,
+      "expiresAt": "2026-12-08T09:53:10.168Z"
+    },
+    "cmd-1794131599949": {
+      "key": "cmd-1794131599949",
+      "value": "{\"command\":\"git diff --check; git status --short\",\"exitCode\":0,\"success\":true}",
+      "namespace": "commands",
+      "storedAt": "2026-11-08T09:53:19.949Z",
+      "lastAccessed": "2026-11-08T09:53:19.949Z",
+      "accessCount": 0,
+      "expiresAt": "2026-12-08T09:53:19.949Z"
+    }
+  },
+  "version": "3.0.0"
+}

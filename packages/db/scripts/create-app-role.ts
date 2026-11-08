@@ -62,7 +62,7 @@ async function createAppRole() {
       DO $$
       BEGIN
         IF EXISTS (SELECT FROM pg_tables WHERE schemaname = 'public' AND tablename = 'audit_logs') THEN
-          REVOKE UPDATE, DELETE ON TABLE audit_logs FROM gschedule_app;
+          REVOKE UPDATE, DELETE, TRUNCATE ON TABLE audit_logs FROM gschedule_app;
         END IF;
       END
       $$;

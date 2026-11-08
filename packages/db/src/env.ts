@@ -16,6 +16,7 @@ const envSchema = z.object({
   DB_POOL_MAX: z.coerce.number().int().min(1).max(20).default(5),
   ALLOW_DESTRUCTIVE_DB: z.string().optional(),
   ALLOW_INSECURE_SSL: z.string().optional(),
+  BETTER_AUTH_API_KEY: z.string().optional(),
   NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
   PORT: z.coerce.number().default(3000),
 });

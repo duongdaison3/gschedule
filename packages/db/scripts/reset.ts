@@ -36,3 +36,4 @@ runReset().catch((err) => {
   console.error("[db:reset] Lỗi thực thi reset:", err.message || err);
   process.exit(1);
 });
+

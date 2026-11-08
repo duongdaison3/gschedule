@@ -22,3 +22,4 @@ runSeed().catch((err) => {
   console.error("[db:seed] Lỗi thực thi seed:", err.message || err);
   process.exit(1);
 });
+

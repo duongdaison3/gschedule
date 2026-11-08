@@ -12,6 +12,7 @@ import { getValidatedEnv, type Env } from "./env";
 
 export * from "./env";
 export * from "./safety";
+export * from "./service";
 
 export function resolveSslConfig(url: string, caCert?: string, nodeEnv: string = "development") {
   const isSslRequested = url.includes("sslmode=require") || url.includes("ssl=true");

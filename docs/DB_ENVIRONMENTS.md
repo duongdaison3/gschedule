@@ -70,3 +70,4 @@ pnpm db:create-app-role
 - **IP Allowlist:** Kích hoạt tính năng *IP Allowlist* trên Aiven Console, chỉ cho phép các IP cố định của lập trình viên và địa chỉ văn phòng truy cập cổng cơ sở dữ liệu.
 - **SSL / TLS:** Luôn giữ tham số `sslmode=require` trên chuỗi kết nối. Trong môi trường production, tuyệt đối cấm cấu hình `rejectUnauthorized: false`.
 - **Region:** Lựa chọn vùng địa lý Đông Nam Á (như Singapore - `ap-southeast-1`) để tối ưu hóa độ trễ đường truyền về Hà Nội (< 40ms).
+
